@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THREADMATCH — Wear It. Be Found.</title>
+<title>GLANCE — It Started With A Glance.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -11,438 +11,227 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #0A0A0A;
-    --white: #F5F0E8;
-    --red: #E8321A;
-    --red-dark: #B5250F;
-    --gray-dark: #1A1A1A;
-    --gray-mid: #2E2E2E;
+    --black:     #1C1C1E;
+    --black-mid: #242426;
+    --black-soft:#2A2A2C;
+    --white:     #F5F0E8;
+    --red:       #E84E35;
+    --red-dark:  #C93D25;
+    --gray-dark: #232325;
+    --gray-mid:  #303033;
     --gray-text: #8A8A8A;
     --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-body:    'DM Sans', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 300;
-    overflow-x: hidden;
-  }
+  body { background: var(--black); color: var(--white); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; }
 
   /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 3rem;
     border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(28,28,30,0.88); backdrop-filter: blur(14px);
   }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    letter-spacing: 0.08em;
-    color: var(--white);
-    text-decoration: none;
-  }
-
+  .nav-logo { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.1em; color: var(--white); text-decoration: none; }
   .nav-logo span { color: var(--red); }
-
-  .nav-pill {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-text);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 0.45rem 1.1rem;
-    border-radius: 100px;
-  }
+  .nav-pill { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-text); border: 1px solid rgba(255,255,255,0.12); padding: 0.45rem 1.1rem; border-radius: 100px; }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 3rem 6rem;
-    position: relative;
-    overflow: hidden;
-  }
-
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 6rem; position: relative; overflow: hidden; }
   .hero-bg {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,50,26,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(232,50,26,0.07) 0%, transparent 60%);
-    pointer-events: none;
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,78,53,0.11) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(232,78,53,0.06) 0%, transparent 60%);
   }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
+  .hero-headline { font-family: var(--font-display); font-size: clamp(5rem, 13vw, 11rem); line-height: 0.92; letter-spacing: 0.02em; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.35s ease forwards; }
+  .hero-headline em { font-style: normal; color: var(--red); display: block; }
+  .hero-slogan { margin-top: 1.2rem; font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: 0.1em; color: rgba(245,240,232,0.4); opacity: 0; animation: fadeUp 0.9s 0.5s ease forwards; }
+  .hero-sub { margin-top: 1.5rem; font-size: 1rem; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,0.6); max-width: 560px; opacity: 0; animation: fadeUp 0.9s 0.55s ease forwards; }
 
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s ease forwards;
-  }
-
-  .hero-headline {
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 13vw, 11rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    opacity: 0;
-    animation: fadeUp 0.9s 0.35s ease forwards;
-  }
-
-  .hero-headline em {
-    font-style: normal;
-    color: var(--red);
-    display: block;
-  }
-
-  .hero-sub {
-    margin-top: 2.5rem;
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgba(245,240,232,0.65);
-    max-width: 520px;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.55s ease forwards;
-  }
-
-  .hero-cta-row {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2.5rem;
-    opacity: 0;
-    animation: fadeUp 0.9s 0.7s ease forwards;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--red);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1rem 2.2rem;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
-
-  .hero-scroll-hint {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-text);
-  }
+  /* HANDLE SEARCH */
+  .handle-search { margin-top: 2.5rem; opacity: 0; animation: fadeUp 0.9s 0.65s ease forwards; max-width: 520px; }
+  .handle-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-text); margin-bottom: 0.75rem; }
+  .handle-input-row { display: flex; }
+  .handle-prefix { display: flex; align-items: center; padding: 0 1rem; background: var(--gray-mid); border: 1px solid rgba(255,255,255,0.1); border-right: none; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.06em; color: var(--red); }
+  .handle-input { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--white); font-family: var(--font-body); font-size: 0.95rem; font-weight: 400; padding: 1rem 1.25rem; outline: none; transition: border-color 0.2s; letter-spacing: 0.04em; }
+  .handle-input::placeholder { color: rgba(245,240,232,0.22); }
+  .handle-input:focus { border-color: var(--red); }
+  .handle-btn { background: var(--red); color: var(--white); border: none; padding: 0 1.8rem; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+  .handle-btn:hover { background: var(--red-dark); }
+  .handle-status { margin-top: 0.6rem; font-size: 0.8rem; min-height: 1.2rem; letter-spacing: 0.04em; }
+  .handle-status.available { color: #4CAF7D; }
+  .handle-status.taken { color: var(--red); }
+  .handle-status.checking { color: var(--gray-text); font-style: italic; }
+  .hero-scroll-hint { margin-top: 2rem; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-text); opacity: 0; animation: fadeUp 0.9s 0.8s ease forwards; }
 
   /* TICKER */
-  .ticker {
-    background: var(--red);
-    padding: 0.75rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
+  .ticker { background: var(--red); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
+  .ticker-track { display: inline-flex; animation: ticker 20s linear infinite; }
+  .ticker-item { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.12em; color: var(--white); padding: 0 2.5rem; }
+  .ticker-item::after { content: '✦'; margin-left: 2.5rem; opacity: 0.5; }
 
-  .ticker-track {
-    display: inline-flex;
-    gap: 0;
-    animation: ticker 18s linear infinite;
-  }
+  /* SECTION SHARED */
+  .section { padding: 7rem 3rem; }
+  .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+  .section-heading { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1; letter-spacing: 0.02em; color: var(--white); margin-bottom: 4rem; }
+  .rule { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0; }
 
-  .ticker-item {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-    color: var(--white);
-    padding: 0 2.5rem;
-  }
-
-  .ticker-item::after {
-    content: '✦';
-    margin-left: 2.5rem;
-    opacity: 0.6;
-  }
+  /* THE PROBLEM */
+  .problem { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .problem-left h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; }
+  .problem-left .intro { font-size: 1rem; line-height: 1.8; color: rgba(245,240,232,0.6); margin-bottom: 2rem; max-width: 420px; }
+  .problem-places { list-style: none; margin-bottom: 2rem; }
+  .problem-place { display: flex; align-items: center; gap: 1.2rem; padding: 0.9rem 0; border-top: 1px solid rgba(255,255,255,0.06); font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.04em; color: rgba(245,240,232,0.28); transition: color 0.2s; cursor: default; }
+  .problem-place:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .problem-place:hover { color: var(--white); }
+  .problem-place-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
+  .problem-place:hover .problem-place-dot { opacity: 1; }
+  .problem-closer { font-size: 0.95rem; color: rgba(245,240,232,0.4); line-height: 1.8; font-style: italic; }
+  .problem-closer strong { font-style: normal; color: var(--white); font-weight: 400; }
+  .problem-right { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
+  .problem-stat-card { background: var(--gray-dark); padding: 2rem 2.2rem; position: relative; overflow: hidden; transition: background 0.2s; }
+  .problem-stat-card:hover { background: var(--black-soft); }
+  .problem-stat-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--red); transform: scaleY(0); transform-origin: bottom; transition: transform 0.35s ease; }
+  .problem-stat-card:hover::before { transform: scaleY(1); }
+  .problem-stat-num { font-family: var(--font-display); font-size: 3rem; color: var(--red); line-height: 1; margin-bottom: 0.4rem; }
+  .problem-stat-text { font-size: 0.85rem; line-height: 1.6; color: rgba(245,240,232,0.4); }
 
   /* HOW IT WORKS */
-  .section {
-    padding: 7rem 3rem;
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 1rem;
-  }
-
-  .section-heading {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 4rem;
-  }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.07);
-  }
-
-  .step {
-    background: var(--black);
-    padding: 3rem 2.5rem;
-    position: relative;
-    transition: background 0.25s;
-  }
-
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+  .step { background: var(--black); padding: 3rem 2.5rem; position: relative; transition: background 0.25s; }
   .step:hover { background: var(--gray-dark); }
-
-  .step-num {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    line-height: 1;
-    color: rgba(255,255,255,0.05);
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    pointer-events: none;
-  }
-
-  .step-icon {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--red);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-
+  .step-num { font-family: var(--font-display); font-size: 5rem; line-height: 1; color: rgba(255,255,255,0.04); position: absolute; top: 1.5rem; right: 2rem; pointer-events: none; }
+  .step-icon { width: 44px; height: 44px; border: 1px solid rgba(232,78,53,0.4); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
   .step-icon svg { width: 20px; height: 20px; stroke: var(--red); fill: none; stroke-width: 1.5; }
-
-  .step h3 {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    margin-bottom: 0.75rem;
-  }
-
-  .step p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: rgba(245,240,232,0.55);
-  }
+  .step h3 { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.3rem; }
+  .step h4 { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.5); }
 
   /* MANIFESTO */
-  .manifesto {
-    padding: 7rem 3rem;
-    background: var(--gray-dark);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .manifesto-text {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 4.2rem);
-    line-height: 1.1;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    max-width: 900px;
-  }
-
+  .manifesto { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .manifesto-text { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.1; letter-spacing: 0.02em; color: var(--white); max-width: 900px; }
   .manifesto-text span { color: var(--red); }
+  .manifesto-byline { margin-top: 3rem; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-text); }
 
-  .manifesto-byline {
-    margin-top: 3rem;
-    font-size: 0.82rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray-text);
-  }
+  /* THE PROMISE */
+  .promise { padding: 7rem 3rem; }
+  .promise-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 4rem; gap: 2rem; flex-wrap: wrap; }
+  .promise-header h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; }
+  .promise-header p { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.45); max-width: 320px; text-align: right; }
+  .promise-list { list-style: none; }
+  .promise-item { display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.07); }
+  .promise-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .promise-cross { font-family: var(--font-display); font-size: 2rem; color: var(--red); line-height: 1; }
+  .promise-item h4 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.3rem; }
+  .promise-item p { font-size: 0.85rem; line-height: 1.6; color: rgba(245,240,232,0.4); }
+  .promise-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(232,78,53,0.3); padding: 0.4rem 0.9rem; white-space: nowrap; }
 
-  /* WHY SECTION */
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
+  /* VALUE PROPS */
+  .values { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .values-heading { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem; }
+  .values-sub { font-size: 0.95rem; color: rgba(245,240,232,0.45); margin-bottom: 4rem; max-width: 480px; line-height: 1.7; }
+  .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+  .value-card { background: var(--gray-dark); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.25s; }
+  .value-card:hover { background: var(--black-soft); }
+  .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.35s ease; border-radius: 0; }
+  .value-card:hover::before { height: 100%; }
+  .value-icon { margin-bottom: 1.5rem; }
+  .value-icon svg { width: 36px; height: 36px; stroke: var(--red); fill: none; stroke-width: 1.4; }
+  .value-card h3 { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.75rem; }
+  .value-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(245,240,232,0.45); }
 
-  .why-left h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    margin-bottom: 2rem;
-  }
+  /* IDENTITY KITS */
+  .kits { padding: 7rem 3rem; }
+  .kits-header { margin-bottom: 3.5rem; }
+  .kits-header h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+  .kits-header p { font-size: 0.9rem; color: rgba(245,240,232,0.45); line-height: 1.7; max-width: 500px; }
+  .kits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-bottom: 3rem; }
+  .kit-card { background: var(--black); padding: 2.5rem 2rem; display: flex; flex-direction: column; transition: background 0.2s; position: relative; }
+  .kit-card:hover { background: var(--gray-dark); }
+  .kit-card.featured { background: var(--red); }
+  .kit-card.featured:hover { background: var(--red-dark); }
+  .kit-badge { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+  .kit-card.featured .kit-badge { color: rgba(245,240,232,0.65); }
+  .kit-visual { width: 48px; height: 48px; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 1.8rem; }
+  .kit-card.featured .kit-visual { border-color: rgba(245,240,232,0.22); }
+  .kit-visual svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 1.3; opacity: 0.65; }
+  .kit-name { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.02em; color: var(--white); margin-bottom: 0.4rem; }
+  .kit-contents { font-size: 0.82rem; line-height: 1.6; color: rgba(245,240,232,0.4); margin-bottom: auto; padding-bottom: 1.5rem; }
+  .kit-card.featured .kit-contents { color: rgba(245,240,232,0.65); }
+  .kit-tag { align-self: flex-start; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); color: rgba(245,240,232,0.35); margin-top: 1.5rem; }
+  .kit-card.featured .kit-tag { border-color: rgba(245,240,232,0.28); color: rgba(245,240,232,0.7); }
+  .kits-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); }
+  .kits-footer p { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.45); max-width: 460px; }
+  .kits-footer p strong { color: var(--white); font-weight: 400; }
 
-  .why-left p {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: rgba(245,240,232,0.6);
-    max-width: 460px;
-  }
-
-  .stat-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .stat-item {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-  }
-
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 3.2rem;
-    color: var(--red);
-    line-height: 1;
-    min-width: 120px;
-  }
-
-  .stat-text {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: rgba(245,240,232,0.55);
-  }
+  /* WHY HANDLES */
+  .handles { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .handles-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .handles-left h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 2.5rem; }
+  .handles-lines { list-style: none; margin-bottom: 2rem; }
+  .handles-line { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.1rem 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.95rem; line-height: 1.7; color: rgba(245,240,232,0.5); }
+  .handles-line:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .handles-line-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 0.65rem; }
+  .handles-right { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
+  .handle-example { background: var(--gray-dark); padding: 1.8rem 2.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
+  .handle-example:hover { background: var(--black-soft); }
+  .handle-example::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--red); transform: scaleY(0); transform-origin: center; transition: transform 0.3s ease; border-radius: 0; }
+  .handle-example:hover::before { transform: scaleY(1); }
+  .handle-example-type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-text); margin-bottom: 0.5rem; }
+  .handle-example-name { font-family: var(--font-display); font-size: 2.8rem; letter-spacing: 0.1em; color: var(--white); line-height: 1; }
+  .handle-example-sub { font-size: 0.75rem; color: rgba(245,240,232,0.25); margin-top: 0.3rem; letter-spacing: 0.06em; }
 
   /* FINAL CTA */
-  .final-cta {
-    padding: 8rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .final-cta-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(232,50,26,0.1) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .final-cta h2 {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 10vw, 8rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
-    position: relative;
-  }
-
-  .final-cta h2 span { color: var(--red); display: block; }
-
-  .final-cta p {
-    font-size: 1rem;
-    color: rgba(245,240,232,0.5);
-    margin-bottom: 3rem;
-    letter-spacing: 0.04em;
-    font-style: italic;
-    position: relative;
-  }
-
+  .final-cta { padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
+  .final-cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(232,78,53,0.09) 0%, transparent 70%); pointer-events: none; }
+  .final-cta h2 { font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; position: relative; }
+  .final-cta h2 em { font-style: normal; color: var(--red); display: block; }
+  .final-cta p { font-size: 1rem; color: rgba(245,240,232,0.45); margin-bottom: 3rem; letter-spacing: 0.04em; font-style: italic; position: relative; }
   .final-cta .btn-primary { position: relative; }
 
+  /* BUTTON */
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--red); color: var(--white); font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.2rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
   /* FOOTER */
-  footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  footer .logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.08em;
-    color: rgba(245,240,232,0.3);
-  }
-
-  footer .logo span { color: var(--red); opacity: 0.6; }
-
-  footer p {
-    font-size: 0.75rem;
-    color: rgba(245,240,232,0.25);
-    letter-spacing: 0.06em;
-  }
-
-  /* DIVIDER LINE */
-  .rule {
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    margin: 0;
-  }
+  footer { padding: 2.5rem 3rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.1em; color: rgba(245,240,232,0.25); text-decoration: none; }
+  .footer-logo span { color: var(--red); opacity: 0.55; }
+  .footer-links { display: flex; align-items: center; gap: 2.5rem; }
+  .footer-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.28); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(245,240,232,0.7); }
+  .footer-copy { font-size: 0.7rem; color: rgba(245,240,232,0.16); letter-spacing: 0.06em; }
 
   /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .hero-headline { font-size: clamp(4rem, 18vw, 6rem); }
-    .section { padding: 5rem 1.5rem; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .manifesto { padding: 5rem 1.5rem; }
-    .final-cta { padding: 5rem 1.5rem; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .section, .problem, .promise, .values, .kits, .handles, .manifesto, .final-cta { padding: 5rem 1.5rem; }
+    .steps-grid, .values-grid, .kits-grid { grid-template-columns: 1fr; }
+    .problem-grid, .handles-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .promise-header p { text-align: left; }
+    .promise-item { grid-template-columns: 2.5rem 1fr; }
+    .promise-tag { display: none; }
+    .kits-footer { flex-direction: column; }
+    footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#"><span>THREAD</span>MATCH</a>
+  <a class="nav-logo" href="#"><span>G</span>LANCE</a>
   <span class="nav-pill">Coming Soon</span>
 </nav>
 
@@ -450,69 +239,93 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <p class="hero-eyebrow">The world's first wearable connection app</p>
-  <h1 class="hero-headline">
-    Wear it.<br>
-    <em>Be found.</em>
-  </h1>
-  <p class="hero-sub">
-    You spot someone across a bar, a park, a platform. You like the way they look.
-    Now you can actually do something about it — without awkward words, without interrupting their moment.
-  </p>
-  <div class="hero-cta-row">
-    <a href="#how" class="btn-primary">
-      See how it works
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
-    </a>
-    <span class="hero-scroll-hint">Scroll to explore ↓</span>
+  <h1 class="hero-headline">It Started<em>With A Glance.</em></h1>
+  <p class="hero-slogan">Turn real-world encounters into meaningful connections through unique Handles and wearable identity.</p>
+  <p class="hero-sub">You spot someone across a bar, a park, a platform. You like the way they look. Now you can actually do something about it — without awkward words, without interrupting their moment.</p>
+  <div class="handle-search">
+    <p class="handle-label">Claim your Handle</p>
+    <div class="handle-input-row">
+      <span class="handle-prefix">@</span>
+      <input class="handle-input" id="handleInput" type="text" placeholder="yourhandle" maxlength="24" autocomplete="off" spellcheck="false">
+      <button class="handle-btn" onclick="checkHandle()">Claim It</button>
+    </div>
+    <p class="handle-status" id="handleStatus"></p>
   </div>
+  <p class="hero-scroll-hint">Scroll to explore ↓</p>
 </section>
 
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="ticker-item">Wear it</span>
-    <span class="ticker-item">Be seen</span>
-    <span class="ticker-item">Get found</span>
-    <span class="ticker-item">Make a move</span>
-    <span class="ticker-item">No awkward intros</span>
+    <span class="ticker-item">Real encounters</span>
+    <span class="ticker-item">Claim your Handle</span>
+    <span class="ticker-item">Wear your identity</span>
+    <span class="ticker-item">It started with a glance</span>
+    <span class="ticker-item">No filters, no fakes</span>
     <span class="ticker-item">Real connections</span>
-    <span class="ticker-item">Wear it</span>
-    <span class="ticker-item">Be seen</span>
-    <span class="ticker-item">Get found</span>
-    <span class="ticker-item">Make a move</span>
-    <span class="ticker-item">No awkward intros</span>
+    <span class="ticker-item">Real encounters</span>
+    <span class="ticker-item">Claim your Handle</span>
+    <span class="ticker-item">Wear your identity</span>
+    <span class="ticker-item">It started with a glance</span>
+    <span class="ticker-item">No filters, no fakes</span>
     <span class="ticker-item">Real connections</span>
   </div>
 </div>
 
+<!-- THE PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-grid">
+    <div class="problem-left">
+      <p class="section-label">The problem</p>
+      <h2>How many opportunities have you missed?</h2>
+      <p class="intro">Every day we cross paths with people we'd like to know.</p>
+      <ul class="problem-places">
+        <li class="problem-place"><span class="problem-place-dot"></span>At coffee shops.</li>
+        <li class="problem-place"><span class="problem-place-dot"></span>At airports.</li>
+        <li class="problem-place"><span class="problem-place-dot"></span>At events.</li>
+        <li class="problem-place"><span class="problem-place-dot"></span>At work.</li>
+      </ul>
+      <p class="problem-closer">Most of those moments disappear before a conversation ever begins.<br><br><strong>Glance gives those moments a second chance.</strong></p>
+    </div>
+    <div class="problem-right">
+      <div class="problem-stat-card">
+        <div class="problem-stat-num">3 in 5</div>
+        <div class="problem-stat-text">people say they've regretted not approaching someone they found attractive in public</div>
+      </div>
+      <div class="problem-stat-card">
+        <div class="problem-stat-num">78%</div>
+        <div class="problem-stat-text">of adults feel more comfortable making the first move digitally than face-to-face</div>
+      </div>
+      <div class="problem-stat-card">
+        <div class="problem-stat-num">Zero</div>
+        <div class="problem-stat-text">other products bridge the gap between a real-world moment and a genuine, safe digital connection</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="section" id="how">
   <p class="section-label">How it works</p>
-  <h2 class="section-heading">Three steps.<br>Zero cringe.</h2>
+  <h2 class="section-heading">Connection Starts<br>In Real Life.</h2>
   <div class="steps-grid">
     <div class="step">
       <span class="step-num">01</span>
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-      </div>
-      <h3>Buy the shirt</h3>
-      <p>Pick a design you love. Your unique code is printed right on it — subtle enough to wear anywhere, bold enough to be noticed.</p>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
+      <h3>Claim Your Handle</h3><h4>Choose a unique identity.</h4>
+      <p>Your Handle is yours alone — a unique identity that lives in the Glance app and on your wearable. Reserve it now before someone else does.</p>
     </div>
     <div class="step">
       <span class="step-num">02</span>
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-      </div>
-      <h3>Download the app</h3>
-      <p>Free to download, free to use. Create your profile. The app is your inbox — it's where connections land when someone notices you.</p>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <h3>Activate Your Identity</h3><h4>Choose your Identity Kit.</h4>
+      <p>Pick your apparel — T-shirt, hoodie, cap. Your Handle or unique QR code is applied. Wear it anywhere, signal your openness on your terms.</p>
     </div>
     <div class="step">
       <span class="step-num">03</span>
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      </div>
-      <h3>Get the message</h3>
-      <p>Someone sees you. They like what they see. They scan your code or type your handle — and their message goes straight to your app. You choose whether to reply.</p>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <h3>Start Conversations</h3><h4>Someone notices your Handle.</h4>
+      <p>They spot you. They like what they see. They find your Handle in the app and send a message. You choose whether to reply — always on your terms.</p>
     </div>
   </div>
 </section>
@@ -521,38 +334,141 @@
 
 <!-- MANIFESTO -->
 <div class="manifesto">
-  <p class="manifesto-text">
-    Dating apps put you in a <span>catalogue.</span><br>
-    ThreadMatch puts you in the <span>world.</span>
-  </p>
-  <p class="manifesto-byline">— The ThreadMatch Manifesto</p>
+  <p class="manifesto-text">Dating apps put you in a <span>catalogue.</span><br>Glance puts you in the <span>world.</span></p>
+  <p class="manifesto-byline">— The Glance Manifesto</p>
 </div>
 
-<!-- WHY SECTION -->
-<section class="section">
-  <div class="why-grid">
-    <div class="why-left">
-      <p class="section-label">Why this exists</p>
-      <h2>Real life is where it actually happens.</h2>
-      <p>
-        Every great story starts with a moment — a glance, a smile, a missed connection that stays with you for weeks. ThreadMatch is built for those moments. We didn't build another swipe app. We built a bridge between the person standing in front of you and the conversation you never got to have.
-      </p>
+<!-- THE PROMISE -->
+<section class="promise" id="promise">
+  <div class="promise-header">
+    <div><p class="section-label">Our promise</p><h2>No filters.<br>No fakes.<br>No games.</h2></div>
+    <p>Every other platform is built on illusion. Glance is built on the one thing you can't fake — being there.</p>
+  </div>
+  <ul class="promise-list">
+    <li class="promise-item">
+      <span class="promise-cross">✕</span>
+      <div><h4>No fake profiles</h4><p>Every Glance user is verified through a real apparel purchase. No bots, no catfishes, no throwaway accounts.</p></div>
+      <span class="promise-tag">Verified users</span>
+    </li>
+    <li class="promise-item">
+      <span class="promise-cross">✕</span>
+      <div><h4>No inflated stats</h4><p>We won't dress up our numbers. When we share milestones, they're real — earned through genuine connections, not manufactured engagement.</p></div>
+      <span class="promise-tag">Radical honesty</span>
+    </li>
+    <li class="promise-item">
+      <span class="promise-cross">✕</span>
+      <div><h4>No algorithmic manipulation</h4><p>We don't decide who you should meet. Real life already made that introduction. We just give you the tools to follow through.</p></div>
+      <span class="promise-tag">You're in control</span>
+    </li>
+    <li class="promise-item">
+      <span class="promise-cross">✕</span>
+      <div><h4>No hidden costs</h4><p>The app is free. You pay for the apparel — a product you actually want. No subscription traps, no paywalled conversations.</p></div>
+      <span class="promise-tag">Transparent pricing</span>
+    </li>
+  </ul>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="values" id="values">
+  <p class="section-label">Why Glance</p>
+  <h2 class="values-heading">Built on real world values.</h2>
+  <p class="values-sub">Safe, discreet, and curated — because meaningful connections deserve better than a swipe.</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Safe by design</h3>
+      <p>Your real identity stays hidden until you choose to share it. Every message goes through Glance's private inbox — no phone number, no social profile exposed. Block or report with a single tap.</p>
     </div>
-    <div class="why-right">
-      <ul class="stat-list">
-        <li class="stat-item">
-          <span class="stat-num">3 in 5</span>
-          <span class="stat-text">people say they've regretted not approaching someone they found attractive in public</span>
-        </li>
-        <li class="stat-item">
-          <span class="stat-num">78%</span>
-          <span class="stat-text">of adults say they feel more comfortable making the first move digitally than in person</span>
-        </li>
-        <li class="stat-item">
-          <span class="stat-num">Zero</span>
-          <span class="stat-text">other products let you turn a real-world sighting into a genuine, safe digital connection</span>
-        </li>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+      <h3>Discreet by default</h3>
+      <p>Wearing a Glance shirt doesn't announce "I'm on a dating app." It's a subtle signal to those who know — and invisible to everyone else. You control when you're visible and when you're not.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <h3>Curated connections</h3>
+      <p>You already passed the first test — they saw you in person and liked what they saw. Glance connections start with genuine, real-world attraction. No algorithm required.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+      <h3>Real world first</h3>
+      <p>Glance doesn't replace real life — it extends it. The spark happens out there. We just make sure it doesn't disappear into a crowd before you get the chance to say hello.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTITY KITS -->
+<section class="kits" id="kits">
+  <div class="kits-header">
+    <p class="section-label">Identity Kits</p>
+    <h2>Choose How You Show Up.</h2>
+    <p>Every activated member chooses an Identity Kit. Your Handle becomes visible to the world.</p>
+  </div>
+  <div class="kits-grid">
+    <div class="kit-card">
+      <span class="kit-badge">Essential</span>
+      <div class="kit-visual"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2M5.64 5.64l1.42 1.42M16.95 16.95l1.41 1.41M5.64 18.36l1.42-1.42M16.95 7.05l1.41-1.41"/></svg></div>
+      <p class="kit-name">Essential</p>
+      <p class="kit-contents">Sticker Pack</p>
+      <span class="kit-tag">Entry level</span>
+    </div>
+    <div class="kit-card featured">
+      <span class="kit-badge">Most popular</span>
+      <div class="kit-visual"><svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg></div>
+      <p class="kit-name">Classic</p>
+      <p class="kit-contents">T-Shirt + Stickers</p>
+      <span class="kit-tag">Best value</span>
+    </div>
+    <div class="kit-card">
+      <span class="kit-badge">Premium</span>
+      <div class="kit-visual"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <p class="kit-name">Premium</p>
+      <p class="kit-contents">Hoodie + Stickers</p>
+      <span class="kit-tag">Full kit</span>
+    </div>
+    <div class="kit-card">
+      <span class="kit-badge">Nomad</span>
+      <div class="kit-visual"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <p class="kit-name">Nomad</p>
+      <p class="kit-contents">Laptop Decal + Stickers</p>
+      <span class="kit-tag">For remote workers</span>
+    </div>
+  </div>
+  <div class="kits-footer">
+    <p>Every activated member chooses an Identity Kit. <strong>Your Handle becomes visible to the world.</strong></p>
+    <a href="#" class="btn-primary">Activate Your Handle <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+  </div>
+</section>
+
+<!-- WHY HANDLES MATTER -->
+<section class="handles" id="handles">
+  <div class="handles-inner">
+    <div class="handles-left">
+      <p class="section-label">Why Handles matter</p>
+      <h2>A Handle Is More Than A Username.</h2>
+      <ul class="handles-lines">
+        <li class="handles-line"><span class="handles-line-dot"></span>A Handle is your public identity within Glance.</li>
+        <li class="handles-line"><span class="handles-line-dot"></span>It's how people discover you.</li>
+        <li class="handles-line"><span class="handles-line-dot"></span>It's how conversations begin.</li>
+        <li class="handles-line"><span class="handles-line-dot"></span>It's how curiosity becomes connection.</li>
       </ul>
+    </div>
+    <div class="handles-right">
+      <div class="handle-example">
+        <p class="handle-example-type">On a T-shirt</p>
+        <p class="handle-example-name">NORTHSTAR</p>
+        <p class="handle-example-sub">@northstar · Glance member</p>
+      </div>
+      <div class="handle-example">
+        <p class="handle-example-type">On a sticker</p>
+        <p class="handle-example-name">MIDNIGHT</p>
+        <p class="handle-example-sub">@midnight · Glance member</p>
+      </div>
+      <div class="handle-example">
+        <p class="handle-example-type">On a cap</p>
+        <p class="handle-example-name">ATLAS</p>
+        <p class="handle-example-sub">@atlas · Glance member</p>
+      </div>
     </div>
   </div>
 </section>
@@ -562,22 +478,44 @@
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-cta-bg"></div>
-  <h2>
-    Coming
-    <span>Soon.</span>
-  </h2>
-  <p>Be the first to know when ThreadMatch drops.</p>
-  <a href="#" class="btn-primary">
-    Join the waitlist
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
-  </a>
+  <h2>Claim Your Handle<em>Before Someone Else Does.</em></h2>
+  <p>Your identity is waiting.</p>
+  <a href="#" class="btn-primary">Claim Your Handle <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="logo"><span>THREAD</span>MATCH</span>
-  <p>© 2026 ThreadMatch. All rights reserved.</p>
+  <a class="footer-logo" href="#"><span>G</span>LANCE</a>
+  <nav class="footer-links">
+    <a href="#">About</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact</a>
+  </nav>
+  <p class="footer-copy">© 2026 Glance.</p>
 </footer>
 
+<script>
+  const takenHandles = ['alex','sam','jack','rose','luna','max','nova','echo','rio','kai'];
+  function checkHandle() {
+    const input = document.getElementById('handleInput');
+    const status = document.getElementById('handleStatus');
+    const val = input.value.trim().toLowerCase().replace(/[^a-z0-9_]/g,'');
+    input.value = val;
+    if (!val) { status.textContent = 'Enter a handle to check availability.'; status.className = 'handle-status checking'; return; }
+    if (val.length < 3) { status.textContent = 'Handle must be at least 3 characters.'; status.className = 'handle-status checking'; return; }
+    status.textContent = 'Checking…'; status.className = 'handle-status checking';
+    setTimeout(() => {
+      if (takenHandles.includes(val)) {
+        status.textContent = '@' + val + ' is already taken. Try another.';
+        status.className = 'handle-status taken';
+      } else {
+        status.textContent = '@' + val + ' is available — we\'ll hold it for you at launch. ✓';
+        status.className = 'handle-status available';
+      }
+    }, 700);
+  }
+  document.getElementById('handleInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkHandle(); });
+  document.getElementById('handleInput').addEventListener('input', function() { this.value = this.value.replace(/[^a-zA-Z0-9_]/g,''); });
+</script>
 </body>
 </html>
