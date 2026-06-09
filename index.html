@@ -40,12 +40,12 @@
   .nav-pill { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-text); border: 1px solid rgba(255,255,255,0.12); padding: 0.45rem 1.1rem; border-radius: 100px; }
 
   /* HERO */
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 6rem; position: relative; overflow: hidden; }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 6rem; position: relative; overflow: hidden; background: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1800&q=80&fit=crop') center center / cover no-repeat; }
   .hero-bg {
     position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,78,53,0.11) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(232,78,53,0.06) 0%, transparent 60%);
+      linear-gradient(to top, rgba(28,28,30,0.97) 0%, rgba(28,28,30,0.75) 50%, rgba(28,28,30,0.55) 100%),
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,78,53,0.1) 0%, transparent 70%);
   }
   .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards; }
   .hero-headline { font-family: var(--font-display); font-size: clamp(5rem, 13vw, 11rem); line-height: 0.92; letter-spacing: 0.02em; color: var(--white); opacity: 0; animation: fadeUp 0.9s 0.35s ease forwards; }
@@ -82,25 +82,25 @@
   .rule { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 0; }
 
   /* THE PROBLEM */
-  .problem { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .problem { padding: 7rem 3rem; background: #F5F0E8; border-top: 1px solid rgba(26,26,26,0.08); border-bottom: 1px solid rgba(26,26,26,0.08); }
   .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-  .problem-left h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; }
-  .problem-left .intro { font-size: 1rem; line-height: 1.8; color: rgba(245,240,232,0.6); margin-bottom: 2rem; max-width: 420px; }
+  .problem-left h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; color: var(--black); margin-bottom: 1.5rem; }
+  .problem-left .intro { font-size: 1rem; line-height: 1.8; color: rgba(26,26,26,0.6); margin-bottom: 2rem; max-width: 420px; }
   .problem-places { list-style: none; margin-bottom: 2rem; }
-  .problem-place { display: flex; align-items: center; gap: 1.2rem; padding: 0.9rem 0; border-top: 1px solid rgba(255,255,255,0.06); font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.04em; color: rgba(245,240,232,0.28); transition: color 0.2s; cursor: default; }
-  .problem-place:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .problem-place:hover { color: var(--white); }
+  .problem-place { display: flex; align-items: center; gap: 1.2rem; padding: 0.9rem 0; border-top: 1px solid rgba(26,26,26,0.1); font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.04em; color: rgba(26,26,26,0.28); transition: color 0.2s; cursor: default; }
+  .problem-place:last-child { border-bottom: 1px solid rgba(26,26,26,0.1); }
+  .problem-place:hover { color: var(--black); }
   .problem-place-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); flex-shrink: 0; opacity: 0; transition: opacity 0.2s; }
   .problem-place:hover .problem-place-dot { opacity: 1; }
-  .problem-closer { font-size: 0.95rem; color: rgba(245,240,232,0.4); line-height: 1.8; font-style: italic; }
-  .problem-closer strong { font-style: normal; color: var(--white); font-weight: 400; }
-  .problem-right { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
-  .problem-stat-card { background: var(--gray-dark); padding: 2rem 2.2rem; position: relative; overflow: hidden; transition: background 0.2s; }
-  .problem-stat-card:hover { background: var(--black-soft); }
+  .problem-closer { font-size: 0.95rem; color: rgba(26,26,26,0.45); line-height: 1.8; font-style: italic; }
+  .problem-closer strong { font-style: normal; color: var(--black); font-weight: 400; }
+  .problem-right { display: flex; flex-direction: column; gap: 1px; background: rgba(26,26,26,0.1); }
+  .problem-stat-card { background: #F5F0E8; padding: 2rem 2.2rem; position: relative; overflow: hidden; transition: background 0.2s; }
+  .problem-stat-card:hover { background: #EDE8DF; }
   .problem-stat-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--red); transform: scaleY(0); transform-origin: bottom; transition: transform 0.35s ease; }
   .problem-stat-card:hover::before { transform: scaleY(1); }
   .problem-stat-num { font-family: var(--font-display); font-size: 3rem; color: var(--red); line-height: 1; margin-bottom: 0.4rem; }
-  .problem-stat-text { font-size: 0.85rem; line-height: 1.6; color: rgba(245,240,232,0.4); }
+  .problem-stat-text { font-size: 0.85rem; line-height: 1.6; color: rgba(26,26,26,0.45); }
 
   /* HOW IT WORKS */
   .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
@@ -114,37 +114,26 @@
   .step p { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.5); }
 
   /* MANIFESTO */
-  .manifesto { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .manifesto { padding: 7rem 3rem; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1800&q=80&fit=crop') center center / cover no-repeat; }
+  .manifesto::before { content: ''; position: absolute; inset: 0; background: rgba(18,18,20,0.82); pointer-events: none; }
+  .manifesto-text, .manifesto-byline { position: relative; z-index: 1; }
   .manifesto-text { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.1; letter-spacing: 0.02em; color: var(--white); max-width: 900px; }
   .manifesto-text span { color: var(--red); }
   .manifesto-byline { margin-top: 3rem; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-text); }
 
-  /* THE PROMISE */
-  .promise { padding: 7rem 3rem; }
-  .promise-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 4rem; gap: 2rem; flex-wrap: wrap; }
-  .promise-header h2 { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; }
-  .promise-header p { font-size: 0.9rem; line-height: 1.7; color: rgba(245,240,232,0.45); max-width: 320px; text-align: right; }
-  .promise-list { list-style: none; }
-  .promise-item { display: grid; grid-template-columns: 2.5rem 1fr auto; align-items: center; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.07); }
-  .promise-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .promise-cross { font-family: var(--font-display); font-size: 2rem; color: var(--red); line-height: 1; }
-  .promise-item h4 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.3rem; }
-  .promise-item p { font-size: 0.85rem; line-height: 1.6; color: rgba(245,240,232,0.4); }
-  .promise-tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); border: 1px solid rgba(232,78,53,0.3); padding: 0.4rem 0.9rem; white-space: nowrap; }
-
-  /* VALUE PROPS */
-  .values { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .values-heading { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem; }
-  .values-sub { font-size: 0.95rem; color: rgba(245,240,232,0.45); margin-bottom: 4rem; max-width: 480px; line-height: 1.7; }
-  .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
-  .value-card { background: var(--gray-dark); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.25s; }
+  /* WHY GLANCE — combined values + promise */
+  .values { padding: 5rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .values-heading { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+  .values-sub { font-size: 0.95rem; color: rgba(245,240,232,0.45); margin-bottom: 3rem; max-width: 560px; line-height: 1.7; }
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); }
+  .value-card { background: var(--gray-dark); padding: 2rem; position: relative; overflow: hidden; transition: background 0.25s; }
   .value-card:hover { background: var(--black-soft); }
-  .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.35s ease; border-radius: 0; }
+  .value-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--red); transition: height 0.35s ease; }
   .value-card:hover::before { height: 100%; }
-  .value-icon { margin-bottom: 1.5rem; }
-  .value-icon svg { width: 36px; height: 36px; stroke: var(--red); fill: none; stroke-width: 1.4; }
-  .value-card h3 { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.75rem; }
-  .value-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(245,240,232,0.45); }
+  .value-icon { margin-bottom: 1.2rem; }
+  .value-icon svg { width: 30px; height: 30px; stroke: var(--red); fill: none; stroke-width: 1.4; }
+  .value-card h3 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.5rem; }
+  .value-card p { font-size: 0.84rem; line-height: 1.65; color: rgba(245,240,232,0.45); }
 
   /* IDENTITY KITS */
   .kits { padding: 7rem 3rem; }
@@ -171,21 +160,21 @@
   .kits-footer p strong { color: var(--white); font-weight: 400; }
 
   /* WHY HANDLES */
-  .handles { padding: 7rem 3rem; background: var(--gray-dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .handles { padding: 7rem 3rem; background: #F5F0E8; border-top: 1px solid rgba(26,26,26,0.08); border-bottom: 1px solid rgba(26,26,26,0.08); }
   .handles-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-  .handles-left h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 2.5rem; }
+  .handles-left h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 4.5vw, 4rem); line-height: 1; letter-spacing: 0.02em; color: var(--black); margin-bottom: 2.5rem; }
   .handles-lines { list-style: none; margin-bottom: 2rem; }
-  .handles-line { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.1rem 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.95rem; line-height: 1.7; color: rgba(245,240,232,0.5); }
-  .handles-line:last-child { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .handles-line { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.1rem 0; border-top: 1px solid rgba(26,26,26,0.1); font-size: 0.95rem; line-height: 1.7; color: rgba(26,26,26,0.55); }
+  .handles-line:last-child { border-bottom: 1px solid rgba(26,26,26,0.1); }
   .handles-line-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 0.65rem; }
-  .handles-right { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
-  .handle-example { background: var(--gray-dark); padding: 1.8rem 2.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
-  .handle-example:hover { background: var(--black-soft); }
+  .handles-right { display: flex; flex-direction: column; gap: 1px; background: rgba(26,26,26,0.1); }
+  .handle-example { background: #F5F0E8; padding: 1.8rem 2.5rem; transition: background 0.2s; position: relative; overflow: hidden; }
+  .handle-example:hover { background: #EDE8DF; }
   .handle-example::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--red); transform: scaleY(0); transform-origin: center; transition: transform 0.3s ease; border-radius: 0; }
   .handle-example:hover::before { transform: scaleY(1); }
-  .handle-example-type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-text); margin-bottom: 0.5rem; }
-  .handle-example-name { font-family: var(--font-display); font-size: 2.8rem; letter-spacing: 0.1em; color: var(--white); line-height: 1; }
-  .handle-example-sub { font-size: 0.75rem; color: rgba(245,240,232,0.25); margin-top: 0.3rem; letter-spacing: 0.06em; }
+  .handle-example-type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(26,26,26,0.4); margin-bottom: 0.5rem; }
+  .handle-example-name { font-family: var(--font-display); font-size: 2.8rem; letter-spacing: 0.1em; color: var(--black); line-height: 1; }
+  .handle-example-sub { font-size: 0.75rem; color: rgba(26,26,26,0.3); margin-top: 0.3rem; letter-spacing: 0.06em; }
 
   /* FINAL CTA */
   .final-cta { padding: 9rem 3rem; text-align: center; position: relative; overflow: hidden; }
@@ -217,12 +206,9 @@
     nav { padding: 1rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .hero-headline { font-size: clamp(4rem, 18vw, 6rem); }
-    .section, .problem, .promise, .values, .kits, .handles, .manifesto, .final-cta { padding: 5rem 1.5rem; }
+    .section, .problem, .values, .kits, .handles, .manifesto, .final-cta { padding: 5rem 1.5rem; }
     .steps-grid, .values-grid, .kits-grid { grid-template-columns: 1fr; }
     .problem-grid, .handles-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .promise-header p { text-align: left; }
-    .promise-item { grid-template-columns: 2.5rem 1fr; }
-    .promise-tag { display: none; }
     .kits-footer { flex-direction: column; }
     footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   }
@@ -338,61 +324,51 @@
   <p class="manifesto-byline">— The Glance Manifesto</p>
 </div>
 
-<!-- THE PROMISE -->
-<section class="promise" id="promise">
-  <div class="promise-header">
-    <div><p class="section-label">Our promise</p><h2>No filters.<br>No fakes.<br>No games.</h2></div>
-    <p>Every other platform is built on illusion. Glance is built on the one thing you can't fake — being there.</p>
-  </div>
-  <ul class="promise-list">
-    <li class="promise-item">
-      <span class="promise-cross">✕</span>
-      <div><h4>No fake profiles</h4><p>Every Glance user is verified through a real apparel purchase. No bots, no catfishes, no throwaway accounts.</p></div>
-      <span class="promise-tag">Verified users</span>
-    </li>
-    <li class="promise-item">
-      <span class="promise-cross">✕</span>
-      <div><h4>No inflated stats</h4><p>We won't dress up our numbers. When we share milestones, they're real — earned through genuine connections, not manufactured engagement.</p></div>
-      <span class="promise-tag">Radical honesty</span>
-    </li>
-    <li class="promise-item">
-      <span class="promise-cross">✕</span>
-      <div><h4>No algorithmic manipulation</h4><p>We don't decide who you should meet. Real life already made that introduction. We just give you the tools to follow through.</p></div>
-      <span class="promise-tag">You're in control</span>
-    </li>
-    <li class="promise-item">
-      <span class="promise-cross">✕</span>
-      <div><h4>No hidden costs</h4><p>The app is free. You pay for the apparel — a product you actually want. No subscription traps, no paywalled conversations.</p></div>
-      <span class="promise-tag">Transparent pricing</span>
-    </li>
-  </ul>
-</section>
-
-<!-- VALUE PROPS -->
+<!-- WHY GLANCE — combined -->
 <section class="values" id="values">
   <p class="section-label">Why Glance</p>
-  <h2 class="values-heading">Built on real world values.</h2>
-  <p class="values-sub">Safe, discreet, and curated — because meaningful connections deserve better than a swipe.</p>
+  <h2 class="values-heading">Built different. By design.</h2>
+  <p class="values-sub">Safe, discreet, and real — because meaningful connections deserve better than a swipe, a filter, or a fake.</p>
   <div class="values-grid">
     <div class="value-card">
       <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <h3>Safe by design</h3>
-      <p>Your real identity stays hidden until you choose to share it. Every message goes through Glance's private inbox — no phone number, no social profile exposed. Block or report with a single tap.</p>
+      <p>Your real identity stays hidden until you choose to share it. Private inbox, no number exposed. Block or report with one tap.</p>
     </div>
     <div class="value-card">
       <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
       <h3>Discreet by default</h3>
-      <p>Wearing a Glance shirt doesn't announce "I'm on a dating app." It's a subtle signal to those who know — and invisible to everyone else. You control when you're visible and when you're not.</p>
+      <p>A subtle signal to those who know — invisible to everyone else. You control when you're visible and when you're not.</p>
     </div>
     <div class="value-card">
       <div class="value-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <h3>Curated connections</h3>
-      <p>You already passed the first test — they saw you in person and liked what they saw. Glance connections start with genuine, real-world attraction. No algorithm required.</p>
+      <p>They already saw you in person and liked what they saw. Connections start with real-world attraction. No algorithm required.</p>
     </div>
     <div class="value-card">
       <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
       <h3>Real world first</h3>
-      <p>Glance doesn't replace real life — it extends it. The spark happens out there. We just make sure it doesn't disappear into a crowd before you get the chance to say hello.</p>
+      <p>The spark happens out there. We make sure it doesn't disappear before you get the chance to say hello.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <h3>No fake profiles</h3>
+      <p>Every user is tied to a real purchase. No bots, no catfishes, no throwaway accounts built to waste your time.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>No inflated stats</h3>
+      <p>We won't dress up our numbers. Every milestone we share is earned through genuine connections, not manufactured engagement.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>No manipulation</h3>
+      <p>We don't decide who you should meet. Real life already made that introduction. We just give you the tools to follow through.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+      <h3>No hidden costs</h3>
+      <p>The app is free. You pay for the apparel — a product you actually want. No subscription traps, no paywalled conversations.</p>
     </div>
   </div>
 </section>
